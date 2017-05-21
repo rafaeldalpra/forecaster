@@ -1,16 +1,32 @@
 <div class="row">
-  <% @data["list"].each do |day| %>
-    <div class="col-sm-12 col-md-3">
-      <div class="panel panel-success">
-        <div class="panel-heading">
-          <%= date_format(day["dt"]) %>
+  <div class="col-sm-12">
+    <div class="panel panel-success">
+      <div class="panel-body">
 
+        <div class="row">
+          <%= render partial: 'today', locals: { day: @today, title: "Today" } %>
+
+          <% @data["list"][1..@data["list"].length].each do |day| %>
+            <%= render partial: 'today', locals: { day: day, title: date_format(day["dt"]), hidden: true } %>
+            <div class="col-sm-12 col-md-3">
+              <div class="panel panel-success day-trigger" id="trigger_<%= day["dt"] %>">
+                <div class="panel-body">
+                  <h5 class="text-center text-success">
+                    <a href="#go" class="text-success go-to-day" data-goto="<%= day["dt"] %>"><%= date_format(day["dt"]) %></a>
+                  </h5>
+                  <p class="text-center">
+                    <img src="<%= weather_icon_url(day["weather"][0]["icon"]) %>.png" alt="Icon">
+                  </p>
+                  <h4><%= temp day["temp"]["day"].to_i %> - <%= day["weather"][0]["main"] %></h4>
+                  <span class="label label-primary"><%= day["weather"][0]["description"] %></span>
+                  <small><%= temp day["temp"]["min"].to_i %> min</small>
+                </div>
+              </div>
+            </div>
+          <% end %>
         </div>
-        <div class="panel-body">
-          <%= day["temp"]["day"] %>
-          <img src="<%= weather_icon_url(day["weather"][0]["icon"]) %>.png" alt="">
-        </div>
+
       </div>
     </div>
-  <% end %>
+  </div>
 </div>

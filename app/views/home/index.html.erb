@@ -4,15 +4,12 @@
     <%= form_tag(search_url, remote: true, method: "post") do %>
       <div class="row">
         <div class="col-sm-12 col-md-9">
-          <input type="text" class="form-control" name="query">
+          <input type="text" class="form-control" value="Dublin" name="query">
         </div>
         <div class="col-sm-12 col-md-3">
           <button type="submit" class="form-control">Search</button>
         </div>
       </div>
-
-
-
     <% end %>
   </div>
 </div>

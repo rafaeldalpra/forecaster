@@ -1,3 +1,71 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.page-header {
+  margin-top: 0 !important;
+}
+
+.today {
+  display: flex;
+  .now {
+    float: left;
+    position: relative;
+    margin: 0 25px;
+
+    span {
+      &.label {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+    img {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    h1 {
+      font-size: 100px;
+      color: #DADADA;
+    }
+    h2 {
+      text-align: center;
+      margin-top: 0;
+    }
+  }
+  .more-info {
+    float: left;
+    padding: 0 30px;
+    align-self: center;
+  }
+  .periods {
+    float: left;
+
+    .period {
+      width: 85px;
+      padding: 10px;
+      background: #DADADA;
+      color: #666;
+      border-radius: 3px;
+      margin: 6px;
+      text-align: center;
+      float: left;
+      align-self: flex-end;
+
+      &.min {
+        background-color: #66ccff;
+      }
+
+      span {
+        font-size: 20px;
+      }
+    }
+  }
+}
+.day-trigger {
+  background: #fafafa;
+  &.active {
+    background: #ccffcc;
+  }
+}

@@ -8,5 +8,6 @@ class HomeController < ApplicationController
   def search
     response = ApiService.new.search(params[:query])
     @data = JSON.parse(response.body)
+    @today = @data["list"][0]
   end
 end

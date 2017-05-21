@@ -6,6 +6,11 @@ module HomeHelper
 
   # Returns the formatted day
   def date_format timestamp
-    Time.at(timestamp).to_datetime.strftime("%d/%m")
+    Time.at(timestamp).to_datetime.strftime("%A %d")
+  end
+
+  # Returns formatted temperature string
+  def temp value
+    "#{value.to_i}&#176;".html_safe
   end
 end
