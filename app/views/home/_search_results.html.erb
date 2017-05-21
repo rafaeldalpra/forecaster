@@ -4,10 +4,10 @@
       <div class="panel-body">
 
         <div class="row">
-          <%= render partial: 'today', locals: { day: @today, title: "Today" } %>
+          <%= render partial: 'day', locals: { day: @today, title: "Today" } %>
 
           <% @data["list"][1..@data["list"].length].each do |day| %>
-            <%= render partial: 'today', locals: { day: day, title: date_format(day["dt"]), hidden: true } %>
+            <%= render partial: 'day', locals: { day: day, title: date_format(day["dt"]), hidden: true } %>
             <div class="col-sm-12 col-md-3">
               <div class="panel panel-success day-trigger" id="trigger_<%= day["dt"] %>">
                 <div class="panel-body">
