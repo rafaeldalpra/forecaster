@@ -1,0 +1,16 @@
+<div class="row">
+  <% @data["list"].each do |day| %>
+    <div class="col-sm-12 col-md-3">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <%= date_format(day["dt"]) %>
+
+        </div>
+        <div class="panel-body">
+          <%= day["temp"]["day"] %>
+          <img src="<%= weather_icon_url(day["weather"][0]["icon"]) %>.png" alt="">
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
